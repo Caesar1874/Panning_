@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<div>
+    <input type="text" name="" id="shop-id">
+</div>
+<div>
+    <select name="" id="total" data-bind="shop-id">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+</div>
+<div>
+    <select name="" id="single" data-bind="shop-id">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    // 原生
+/*    document.querySelectorAll("select").forEach(function(select, index) {
+        var parent = select.dataset["bind"];
+        document.getElementById(parent).addEventListener("change", function(event) {
+            console.log("change");
+           select.disabled = true;
+        });
+//        console.log(parent)
+    })*/
+
+// jquery
+    $("select").each(function(index, select) {
+        var parentId = select.dataset["bind"];
+        console.log(parentId);
+        $("#" + parentId).on("change", function(event) {
+            console.log("change");
+            select.disabled = true;
+        })
+    });
+/*
+    $("#shop-id").on("click", function(event) {
+        console.log("change");
+        $("total").disabled = true;
+    })*/
+</script>
+</body>
+</html>
