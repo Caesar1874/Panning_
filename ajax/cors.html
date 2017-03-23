@@ -8,6 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-<h1>repos</h1>
+
+<script>
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if(xhr.status === xhr.DONE) {
+            console.log(xhr.responseText);
+        }
+    }
+</script>
 </body>
 </html>
